@@ -14,6 +14,7 @@ export const Home = () => {
   const [location, setLocation] = useState();
   const [weather, setWeather] = useState();
   const nav = useNavigation();
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   useEffect(() => {
     getUserCoords();
@@ -77,6 +78,11 @@ export const Home = () => {
     });
   }
 
+  const handleRefresh = () => {
+    setIsRefreshing(true);
+    fetchWeatherAndCity().then(() => setIsRefreshing(false));
+  };
+
   const currentWeather = weather?.weather?.current_weather;
 
   return (
@@ -89,6 +95,8 @@ export const Home = () => {
               temp={currentWeather.temperature}
               city={weather.city}
               interpretation={getWeatherInterpretation(currentWeather.weathercode)}
+              handleRefresh={handleRefresh}
+              isRefreshing={isRefreshing}
             />
           </View>
           <View style={s.searchBar}></View>

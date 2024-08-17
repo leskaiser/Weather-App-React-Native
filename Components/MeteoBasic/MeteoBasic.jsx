@@ -2,8 +2,10 @@ import {Pressable, View} from "react-native";
 import {Txt} from "../Txt/Txt";
 import {s} from "./MeteoBasic.style"
 import {Clock} from "../Clock/Clock";
+import RefreshButton from "../RefreshButton/RefreshButton";
+import {useState} from "react";
 
-export const MeteoBasic = ({onPress, temp, city, interpretation}) => {
+export const MeteoBasic = ({onPress, temp, city, interpretation, handleRefresh, isRefreshing}) => {
   const IconComponent = interpretation.image;
 
   return (
@@ -18,7 +20,8 @@ export const MeteoBasic = ({onPress, temp, city, interpretation}) => {
 
       <View style={s.tempBox}>
         <Txt style={s.temp}>{Math.round(temp)}°</Txt>
-        <View style={s.image}><IconComponent width={150} height={150}/></View>
+        <View style={s.refresh}><RefreshButton onRefresh={handleRefresh} isRefreshing={isRefreshing}/></View>
+        <IconComponent style={s.image} width={140} height={140}/>
       </View>
     </>
   );
