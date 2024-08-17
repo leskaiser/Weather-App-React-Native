@@ -10,6 +10,11 @@ const s = StyleSheet.create({
   advanced: {
     flex: 1,
   },
+  loading: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  }
 });
 
 export {s};

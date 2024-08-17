@@ -1,6 +1,5 @@
 import {StyleSheet} from "react-native";
 
-
 export const s = StyleSheet.create({
   container: {
     flex: 1,
@@ -8,8 +7,9 @@ export const s = StyleSheet.create({
   imgBackground: {
     flex: 1,
     backgroundColor: "#000000",
+    padding: 20
   },
-  imgStle: {
-    opacity: 0.75
+  imgStyle: {
+    opacity: 0.8
   }
 })
