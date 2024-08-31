@@ -19,7 +19,7 @@ const s = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: "flex-start",
+    justifyContent: "space-evenly",
     // backgroundColor: "#203f5b"
   },
   temp: {
@@ -29,7 +29,7 @@ const s = StyleSheet.create({
   },
   city: {
     fontSize: 40,
-    marginBottom: 0
+    marginBottom: 0,
   },
   refresh: {
     // alignSelf: "auto",

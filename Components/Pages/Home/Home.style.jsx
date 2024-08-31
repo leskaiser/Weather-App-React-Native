@@ -5,7 +5,8 @@ const s = StyleSheet.create({
     flex: 2
   },
   searchBar: {
-    flex: 2
+    flex: 2,
+    // backgroundColor: "red"
   },
   advanced: {
     flex: 1,

@@ -1,20 +1,19 @@
-import {Pressable, View} from "react-native";
+import {TouchableOpacity, View} from "react-native";
 import {Txt} from "../Txt/Txt";
 import {s} from "./MeteoBasic.style"
 import {Clock} from "../Clock/Clock";
 import RefreshButton from "../RefreshButton/RefreshButton";
-import {useState} from "react";
 
-export const MeteoBasic = ({onPress, temp, city, interpretation, handleRefresh, isRefreshing}) => {
+export const MeteoBasic = ({onPress, temp, city, interpretation, handleRefresh, isRefreshing, lastUpdate}) => {
   const IconComponent = interpretation.image;
 
   return (
     <>
       <View style={s.clock}>
-        <Clock/>
+        <Clock lastUpdate={lastUpdate}/>
       </View>
 
-      <Pressable onPress={onPress}><Txt style={s.city}>{city}</Txt></Pressable>
+      <TouchableOpacity onPress={onPress}><Txt style={s.city}>{city}</Txt></TouchableOpacity>
 
       <Txt style={s.weatherLabel}>{interpretation.label}</Txt>
 

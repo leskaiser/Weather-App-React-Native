@@ -1,7 +1,7 @@
 import {Txt} from "../../Txt/Txt";
 import {Container} from "../../Container/Container";
 import {useNavigation, useRoute} from "@react-navigation/native";
-import {Image, Pressable, View} from "react-native";
+import {Image, Pressable, Touchable, TouchableOpacity, View} from "react-native";
 import {s} from "./Forecast.style"
 import {ForecastListItem} from "../../ForecastListItem/ForecastListItem";
 import uuid from "react-native-uuid";
@@ -25,9 +25,9 @@ export const Forecast = () => {
 
 const BackButton = ({nav}) => {
   return (
-    <Pressable style={[s.backButton]} onPress={() => nav.goBack()}>
+    <TouchableOpacity style={[s.backButton]} onPress={() => nav.goBack()}>
       <Image style={{height: 25, width: 25}} source={require("../../../assets/icons/go-back.png")}/>
-    </Pressable>
+    </TouchableOpacity>
   );
 }
 

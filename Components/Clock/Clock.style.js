@@ -2,7 +2,8 @@ import {StyleSheet} from "react-native";
 
 export const s = StyleSheet.create({
   time: {
-    fontSize: 20,
-    marginBottom: 20
+    fontSize: 15,
+    marginBottom: 20,
+    color: "#EFEFEF"
   }
 })

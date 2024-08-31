@@ -1,21 +1,20 @@
 import {Txt} from "../Txt/Txt";
-import {nowHours} from "../../services/date-service";
 import {s} from "./Clock.style"
-import {useEffect, useState} from "react";
 
-export const Clock = () => {
-  const [time, setTime] = useState(nowHours())
+export const Clock = ({lastUpdate}) => {
+  // const [time, setTime] = useState(nowHours())
+  //
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setTime(nowHours())
+  //   }, 1000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(nowHours())
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
+  console.log(lastUpdate.date);
   return (
     <>
-      <Txt style={s.time}>{time}</Txt>
+      <Txt style={s.time}>Last Update: {lastUpdate.date} at {lastUpdate.hours}</Txt>
     </>
   )
 }

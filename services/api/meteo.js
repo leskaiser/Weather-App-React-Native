@@ -12,10 +12,23 @@ export class WeatherAPI {
     const {
       address: {
         city,
-        municipality
+        municipality,
+        hamlet,
+        village,
+        county
       }
     } = (await (axios.get(`https://nominatim.openstreetmap.org/reverse?lat=${coords.lat}&lon=${coords.lng}&format=json`))).data;
     // console.log(city, municipality)
-    return city || municipality;
+    return city || municipality || hamlet || village || county;
   }
+
+  static async fetchCoordsFromCity(city) {
+    try {
+      return (await (axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=100&language=fr&format=json`))).data.results;
+    } catch (e) {
+      throw `No city Found for : ${city}`;
+    }
+  }
+
+
 }
